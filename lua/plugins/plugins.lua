@@ -1,5 +1,20 @@
 return {
   { "akinsho/bufferline.nvim", enabled = false },
+  -- Make the fuzzy finder (snacks.picker) include dotfiles
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        sources = {
+          -- file picker (<leader><space>, <leader>ff): show dotfiles + gitignored
+          files = { hidden = true, ignored = true },
+          -- live grep (<leader>/, <leader>sg): search dotfiles + gitignored too
+          grep = { hidden = true, ignored = true },
+          -- explorer keeps defaults (no dotfiles, no gitignored); toggle in-tree with H / I
+        },
+      },
+    },
+  },
   {
     "folke/tokyonight.nvim",
     opts = {
